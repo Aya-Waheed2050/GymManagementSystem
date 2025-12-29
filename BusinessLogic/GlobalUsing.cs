@@ -1,0 +1,22 @@
+﻿global using Microsoft.AspNetCore.Http;
+global using BusinessLogic.Services.Interfaces;
+global using BusinessLogic.ViewModels.AccountViewModels;
+global using DataAccess.Repositories.Interfaces;
+global using Microsoft.AspNetCore.Identity;
+global using BusinessLogic.ViewModels.AnalyticsViewModels;
+global using DataAccess.Models.Plans;
+global using DataAccess.Models.Sessions;
+global using DataAccess.Models.Users;
+global using BusinessLogic.ViewModels.BookingViewModels;
+global using BusinessLogic.ViewModels.MembershipsViewModels;
+global using BusinessLogic.ViewModels.SessionViewModels;
+global using BusinessLogic.Services.AttachmentService;
+global using BusinessLogic.ViewModels.MemberViewModels;
+global using DataAccess.Models.Health;
+global using AutoMapper;
+global using BusinessLogic.ViewModels.PlanViewModels;
+global using BusinessLogic.ViewModels.TrainerViewModels;
+global using DataAccess.Models;
+global using System.ComponentModel.DataAnnotations;
+global using DataAccess.Models.Enums;
+ 

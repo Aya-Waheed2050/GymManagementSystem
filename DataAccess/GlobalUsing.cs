@@ -1,0 +1,16 @@
+﻿global using DataAccess.Models.Sessions;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using DataAccess.Models.Health;
+global using DataAccess.Models.Users;
+global using DataAccess.Models.Plans;
+global using System.Reflection;
+global using System.Text.Json;
+global using DataAccess.Models;
+global using Microsoft.AspNetCore.Identity;
+global using DataAccess.Models.Base;
+global using DataAccess.Models.Enums;
+global using DataAccess.Data.Context;
+global using DataAccess.Repositories.Interfaces;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

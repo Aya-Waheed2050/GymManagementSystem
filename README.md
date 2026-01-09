@@ -1,91 +1,107 @@
-🏋️ Gym Management System (ASP.NET Core MVC)
+Gym Management System | ASP.NET Core MVC
 
-📌 Project Overview
+A backend-focused Gym Management System built with ASP.NET Core MVC, following Clean Architecture and real-world business logic. The system goes beyond CRUD operations, including booking management, membership management, user management, and attendance tracking.
 
-This project is a Gym Management System built using ASP.NET Core MVC, focused on backend architecture, business rules enforcement, and real-world system constraints.
+---
 
-The application follows Clean Architecture principles, ensuring scalability, maintainability, and clear separation of concerns between Presentation, Business Logic, and Data Access layers.
+🚀 Key Features
+
+1. Booking Management
+
+Manage sessions with categories and trainers.
+
+Book members for upcoming sessions.
+
+Track member attendance for ongoing sessions.
+
+Cancel bookings with validation on session start date.
+
+Calculate available slots dynamically.
+
+Views for Upcoming Sessions and Ongoing Sessions with action buttons.
+
+
+2. Membership Management
+
+Create memberships for members with active plans.
+
+Cancel active memberships.
+
+Display all active memberships with member and plan info.
+
+Dropdown lists for members and plans integrated into Views.
+
+Validation for member existence, plan existence, and active membership check.
+
+
+3. User & Authentication Management
+
+Register and login users using ASP.NET Core Identity.
+
+Role-based access control (RBAC) for Admin and SuperAdmin.
+
+Retrieve users by roles.
+
+Password validation and role assignment during registration.
+
+
+4. Technical Highlights
+
+Clean Architecture: Clear separation of Presentation, Business Logic, and Data Access layers.
+
+Repositories & Unit of Work: Generic repositories with Unit of Work pattern.
+
+EF Core Code-First: Entity configurations and relationships defined with Fluent API.
+
+AutoMapper: Maps entities to ViewModels seamlessly.
+
+Validation & Alerts: Server-side and client-side validation with Bootstrap alerts.
+
+Responsive Views: Built with Bootstrap 5, compatible with desktop and mobile.
+
+Select2 Integration: Enhanced dropdowns for member selection in bookings.
 
 
 ---
 
-🧩 Implemented Modules
+📂 Project Structure
 
-🔹 Trainer Management
-
-Full CRUD operations
-
-Email and phone uniqueness validation
-
-Prevent deletion of trainers assigned to active or upcoming sessions
-
-Dedicated ViewModels for Create, Update, and Details views
-
-
-🔹 Session Management
-
-Create, update, and delete training sessions
-
-Enforced business rules:
-
-Valid trainer and category existence
-
-Future start dates only
-
-Capacity validation (0–25)
-
-
-Restrictions on updating or deleting sessions with bookings or upcoming schedules
-
-Real-time calculation of available slots
-
-Automatic session status detection (Upcoming / Ongoing / Completed)
-
-
-🔹 Membership Plan Management
-
-View and update membership plans
-
-Soft delete / activation toggle
-
-Prevent updates or deactivation when active memberships exist
-
-
-🔹 Account & Admin Management
-
-Authentication and authorization using ASP.NET Core Identity
-
-Role-Based Access Control (Admin / SuperAdmin)
-
-Secure login and logout flows
-
-Admin management (list, register, delete)
-
-Custom Access Denied page for unauthorized access attempts
-
-
+Gym_Management_System/
+│
+├─ Presentation/               # MVC Layer (Controllers, Views)
+│   ├─ Controllers/
+│   ├─ Views/
+│   │   ├─ Booking/
+│   │   ├─ Membership/
+│   │   └─ Shared/
+│
+├─ BusinessLogic/              # Services, DTOs, ViewModels
+│   ├─ Services/
+│   │   ├─ Classes/            # Service Implementations
+│   │   └─ Interfaces/
+│   └─ ViewModels/
+│       ├─ BookingViewModels/
+│       └─ MembershipViewModels/
+│
+├─ DataAccess/                 # Repositories and DbContext
+│   ├─ Repositories/
+│   │   ├─ Classes/
+│   │   └─ Interfaces/
+│   └─ GymSystemDbContext.cs
+│
+├─ Domain/                     # Entities, Enums
+│
+├─ wwwroot/                    # Static assets (JS, CSS)
+│
+└─ README.md
 
 ---
 
-🏗 Architecture & Design Patterns
+⚙️ Technologies & Tools
 
-Clean Architecture (Presentation, Business Logic, Data Access)
+.NET 9 / ASP.NET Core MVC
 
-Service Layer for business rules and validation
-
-Unit of Work & Generic Repository patterns
-
-AutoMapper for model-to-view separation
-
-
-
----
-
-🛠 Technologies Used
-
-ASP.NET Core MVC
-
-Entity Framework Core (Code First)
+Entity Framework Core (Code-First)
 
 SQL Server
 
@@ -93,50 +109,105 @@ ASP.NET Core Identity
 
 AutoMapper
 
-LINQ
+Bootstrap 5 & Select2
 
-Razor Views & Partial Views
+Dependency Injection
 
-Data Annotations & Client-Side Validation
-
-
+Unit of Work & Generic Repository Pattern
 
 ---
 
-▶️ Getting Started
+✅ Business Logic Implementation
 
-1. Clone the repository
+1. Booking Workflow
+
+Check if session exists and is upcoming.
+
+Verify member has an active membership.
+
+Prevent duplicate bookings.
+
+Validate capacity before booking.
+
+Track attendance with MemberAttended.
+
+Cancel booking if session hasn't started.
 
 
-2. Update the connection string in appsettings.json
+
+2. Membership Workflow
+
+Validate member and plan existence.
+
+Check for existing active memberships.
+
+Calculate membership end date based on plan duration.
+
+Cancel membership if active.
 
 
-3. Apply migrations and update the database
 
+3. User Management
 
-4. Run the project using Visual Studio or dotnet run
+Register new users with roles.
 
+Validate login credentials.
 
-
+Retrieve users based on roles.
 
 ---
 
-🚀 Future Enhancements
+📄 Sample Views
 
-Member subscription and attendance tracking
+Sessions Dashboard: View upcoming & ongoing sessions with trainer, category, date, time, duration, and capacity.
 
-Online session booking and cancellation
+Booking Pages: Book members, mark attendance, cancel bookings.
 
-Payment integration for membership plans
+Membership Pages: Create and cancel memberships, view active memberships.
 
-Reporting and analytics dashboard
-
-RESTful API version for mobile or SPA integration
-
-
+User Management Pages: List users, roles, and register new users (Admin / SuperAdmin).
 
 ---
 
-🎯 Key Focus
+⚡ Installation & Setup
 
-This project emphasizes backend development, architecture-driven design, and business rule enforcement, making it a strong foundation for a production-ready gym management platform.
+1. Clone the repository:
+git clone https://github.com/<YourUsername>/Gym-Management-System.git
+
+2. Navigate to the project folder:
+cd Gym-Management-System
+
+3. Configure appsettings.json with your SQL Server connection string.
+
+4. Apply migrations and update database:
+dotnet ef database update
+
+5. Run the project:
+dotnet run
+
+6. Open the application in your browser:
+https://localhost:5001
+
+---
+
+📌 Notes
+
+Ensure SQL Server is installed and running.
+
+The system uses TempData and Bootstrap alerts for feedback.
+
+Select2 plugin is used for better dropdown UX.
+
+All business rules (capacity, attendance, active membership) are validated server-side.
+
+---
+
+📫 Contact
+
+Aya Waheed
+
+Email: ayawaheed7@gmail.com
+
+LinkedIn: https://www.linkedin.com/in/aya-waheed2050/
+
+GitHub: https://github.com/Aya-Waheed2050

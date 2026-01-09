@@ -2,6 +2,7 @@ Gym Management System | ASP.NET Core MVC
 
 A backend-focused Gym Management System built with ASP.NET Core MVC, following Clean Architecture and real-world business logic. The system goes beyond CRUD operations, including booking management, membership management, user management, and attendance tracking.
 
+
 ---
 
 🚀 Key Features
@@ -62,6 +63,7 @@ Responsive Views: Built with Bootstrap 5, compatible with desktop and mobile.
 Select2 Integration: Enhanced dropdowns for member selection in bookings.
 
 
+
 ---
 
 📂 Project Structure
@@ -95,6 +97,7 @@ Gym_Management_System/
 │
 └─ README.md
 
+
 ---
 
 ⚙️ Technologies & Tools
@@ -114,6 +117,8 @@ Bootstrap 5 & Select2
 Dependency Injection
 
 Unit of Work & Generic Repository Pattern
+
+
 
 ---
 
@@ -155,6 +160,10 @@ Validate login credentials.
 
 Retrieve users based on roles.
 
+
+
+
+
 ---
 
 📄 Sample Views
@@ -167,26 +176,45 @@ Membership Pages: Create and cancel memberships, view active memberships.
 
 User Management Pages: List users, roles, and register new users (Admin / SuperAdmin).
 
+
+
 ---
 
 ⚡ Installation & Setup
 
 1. Clone the repository:
+
+
+
 git clone https://github.com/<YourUsername>/Gym-Management-System.git
 
 2. Navigate to the project folder:
+
+
+
 cd Gym-Management-System
 
 3. Configure appsettings.json with your SQL Server connection string.
 
+
 4. Apply migrations and update database:
+
+
+
 dotnet ef database update
 
 5. Run the project:
+
+
+
 dotnet run
 
 6. Open the application in your browser:
+
+
+
 https://localhost:5001
+
 
 ---
 
@@ -199,6 +227,8 @@ The system uses TempData and Bootstrap alerts for feedback.
 Select2 plugin is used for better dropdown UX.
 
 All business rules (capacity, attendance, active membership) are validated server-side.
+
+
 
 ---
 
